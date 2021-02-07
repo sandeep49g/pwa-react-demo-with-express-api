@@ -75,3 +75,11 @@ Note: serviceworker :: Core JS Service Worker: Cached with all files : Network A
 > npm create-react-app .
 > npm install --save react-router-dom
 > npm install --save bootstrap react-bootstrap
+
+To resolve Netlify routing issue for service worker:
+Add file in public folder: _redirects & add below content in this file:
+                        /* /index.html 200
+
+> npm install --save  axios
+> npm install --save react-loading-skeleton
+JSX Control Statements:
