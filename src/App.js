@@ -37,7 +37,7 @@ function App() {
                     {
                         mode === 'offline' && (
                             <div className="alert alert-warning" role="alert">
-                                you are in offline mode or some issue with connection
+                                You are in offline mode or some issue with connection
                             </div>
                         )
                     }
