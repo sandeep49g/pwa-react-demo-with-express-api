@@ -73,13 +73,17 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 Note: serviceworker :: Core JS Service Worker: Cached with all files : Network API would even work if no internet with old cached data
 
 > npm create-react-app .
+> npm run eject (For webpack config, own babel & eslint config)
 > npm install --save react-router-dom
 > npm install --save bootstrap react-bootstrap
+> npm install --save  axios
+> npm install --save react-loading-skeleton
+> npm install --save babel-plugin-jsx-control-statements eslint-plugin-jsx-control-statements jsx-control-statements
+
+Configure .babelrc & .eslintrc for jsx-control-statements configuration
+
+> git init  (push in git repo)
 
 To resolve Netlify routing issue for service worker:
 Add file in public folder: _redirects & add below content in this file:
-                        /* /index.html 200
-
-> npm install --save  axios
-> npm install --save react-loading-skeleton
-JSX Control Statements:
+/* /index.html 200
