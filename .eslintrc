@@ -1,7 +1,4 @@
 {
-    "ecmaFeatures": {
-        "jsx": true
-    },
     "plugins": ["jsx-control-statements"],
     "rules": {
         "jsx-control-statements/jsx-choose-not-empty": 1,

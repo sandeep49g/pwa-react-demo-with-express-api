@@ -26,32 +26,35 @@ export default function Users() {
     return (
         <div className="users-list">
             {
-                (usersData && usersData.length) ? (
-                    <Table striped hover responsive variant="light">
-                        <thead>
-                            <tr>
-                                <th>Id</th>
-                                <th>Name</th>
-                                <th>Email</th>
-                                <th>Address</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {
-                                usersData.map((userInfo) => (
-                                    <tr key={userInfo.id}>
-                                        <td>{userInfo.id}</td>
-                                        <td>{userInfo.name}</td>
-                                        <td>{userInfo.email}</td>
-                                        <td>{userInfo.address.street}</td>
-                                    </tr>
-                                ))
-                            }
-                        </tbody>
-                    </Table>
-                ) : (
-                    <Skeleton height={50} count={10} duration={2} />
-                )
+                <Choose>
+                    <When condition={usersData && usersData.length}>
+                        <Table striped hover responsive variant="light">
+                            <thead>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Address</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {
+                                    usersData.map((userInfo) => (
+                                        <tr key={userInfo.id}>
+                                            <td>{userInfo.id}</td>
+                                            <td>{userInfo.name}</td>
+                                            <td>{userInfo.email}</td>
+                                            <td>{userInfo.address.street}</td>
+                                        </tr>
+                                    ))
+                                }
+                            </tbody>
+                        </Table>
+                    </When>
+                    <Otherwise>
+                        <Skeleton height={50} count={10} duration={2} />
+                    </Otherwise>
+                </Choose>
             }
         </div>
     )
