@@ -33,20 +33,11 @@ function App() {
                         </Nav.Link>
                     </Nav>
                 </Navbar>
-                <div>
-                    {/* {
-                        mode === 'offline' && (
-                            <div className="alert alert-warning" role="alert">
-                                You are in offline mode or some issue with connection
-                            </div>
-                        )
-                    } */}
-                    <If condition={mode === 'offline'}>
-                        <div className="alert alert-warning" role="alert">
-                            You are in offline mode or some issue with connection
-                        </div>
-                    </If>
-                </div>
+                <If condition={mode === 'offline'}>
+                    <div className="alert alert-warning" role="alert">
+                        You are in offline mode or some issue with connection
+                    </div>
+                </If>
                 <Switch>
                     <Route path="/about" component={About} ></Route>
                     <Route path="/users" component={Users} ></Route>
