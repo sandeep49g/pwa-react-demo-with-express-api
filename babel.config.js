@@ -1,6 +1,7 @@
 export default {
     "presets": [
-        "react-app"      
+        "@babel/preset-env",
+        "@babel/preset-react"      
     ],
     "plugins": ["jsx-control-statements"],
     "env": {
