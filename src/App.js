@@ -34,7 +34,7 @@ function App() {
                     </Nav>
                 </Navbar>
                 <If condition={mode === 'offline'}>
-                    <div className="alert alert-warning" role="alert">
+                    <div className="alert alert-warning mb-0" role="alert">
                         You are in offline mode or some issue with connection
                     </div>
                 </If>

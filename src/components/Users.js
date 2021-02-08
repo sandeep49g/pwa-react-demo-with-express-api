@@ -6,7 +6,6 @@ export default function Users() {
     const [usersData, setUsersData] = useState([]);
 
     useEffect(() => {
-        //let url = "https://jsonplaceholder.typicode.com/users";
         let url = "https://sandeep49g-express-api-demo.netlify.app/.netlify/functions/api/users";
 
         fetch(url).then((response) => {
@@ -14,12 +13,7 @@ export default function Users() {
                 if (result && result.users) {
                     setUsersData(result.users);
                 }
-                //localStorage.setItem("users", JSON.stringify(result));
             });
-        }).catch(err => {
-            // setMode('offline');
-            // let collection = localStorage.getItem('users');
-            // setUsersData(JSON.parse(collection));
         });
     }, []);
 
@@ -28,7 +22,7 @@ export default function Users() {
             {
                 <Choose>
                     <When condition={usersData && usersData.length}>
-                        <Table striped hover responsive variant="light">
+                        <Table striped hover responsive variant="dark">
                             <thead>
                                 <tr>
                                     <th>Id</th>
