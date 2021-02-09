@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Route, BrowserRouter as Router, Switch, NavLink } from 'react-router-dom';
 import { Navbar, Nav } from 'react-bootstrap';
+import MyProfile from './components/MyProfile/index';
+import EmployeesList from './components/EmployeesList/index';
+import TeamStructure from './components/TeamStructure/index';
 import './App.css';
-import Home from './components/Home';
-import About from './components/About';
-import Users from './components/Users';
 
 function App() {
     const [mode, setMode] = useState(window.navigator.onLine ? 'online' : 'offline');
@@ -19,17 +19,17 @@ function App() {
             <Router>
                 <Navbar bg="dark" variant="dark">
                     <Navbar.Brand as={NavLink} to="/">
-                        PWA Demo
+                        Publicis Sapient
                     </Navbar.Brand>
                     <Nav>
-                        <Nav.Link as={NavLink} to="/" exact>
-                            Home
+                        <Nav.Link as={NavLink} to="/my-profile" exact>
+                            My Profile
                         </Nav.Link>
-                        <Nav.Link as={NavLink} to="/about">
-                            About
+                        <Nav.Link as={NavLink} to="/my-team">
+                            My Team
                         </Nav.Link>
-                        <Nav.Link as={NavLink} to="/users">
-                            Users
+                        <Nav.Link as={NavLink} to="/team-structure">
+                            Team Structure
                         </Nav.Link>
                     </Nav>
                 </Navbar>
@@ -39,10 +39,10 @@ function App() {
                     </div>
                 </If>
                 <Switch>
-                    <Route path="/about" component={About} ></Route>
-                    <Route path="/users" component={Users} ></Route>
-                    <Route path="/home" component={Home} ></Route>
-                    <Route path="/" eaxct component={Home} ></Route>
+                    <Route path="/my-profile" component={MyProfile} ></Route>
+                    <Route path="/my-team" component={EmployeesList} ></Route>
+                    <Route path="/team-structure" component={TeamStructure} ></Route>
+                    <Route path="/" eaxct component={MyProfile} ></Route>
                 </Switch>
             </Router>
         </div>

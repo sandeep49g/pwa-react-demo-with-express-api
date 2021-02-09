@@ -1,0 +1,12 @@
+.orgchart-container {
+    position: relative;
+    overflow: auto;
+    margin: 0;
+    height: auto;
+    background: none;
+    border: none;
+}
+
+.orgchart.myChart {
+  background-image: none;
+}
