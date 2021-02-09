@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import "./employee-card-template.css";
 import profileImage from './images/img_avatar.png';
 
