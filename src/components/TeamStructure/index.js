@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import Skeleton from 'react-loading-skeleton';
 import OrganizationChart from "@dabeng/react-orgchart";
 import EmployeeCardTemplate from './EmployeeCardTemplate.js';
 import './_team-structure.css';
 
 export default function TeamStruture()
 {
-    const [employeesHierarchy, setEmployeesHierarchy] = useState([]);
+    const [employeesHierarchy, setEmployeesHierarchy] = useState();
 
     useEffect(() => {
         let url = "https://sandeep49g-express-api-demo.netlify.app/.netlify/functions/api/employees-hierarchy";
@@ -22,11 +23,18 @@ export default function TeamStruture()
     return(
         <div className="pt-2 px-3">
             <h3>Team Struture</h3>
-            <OrganizationChart
-                chartClass="myChart"
-                datasource={employeesHierarchy}
-                NodeTemplate={EmployeeCardTemplate}
-            />
+            <Choose>
+                <When condition={employeesHierarchy}>
+                    <OrganizationChart
+                        chartClass="myChart"
+                        datasource={employeesHierarchy}
+                        NodeTemplate={EmployeeCardTemplate}
+                    />
+                </When>
+                <Otherwise>
+                    <Skeleton height={100} count={5} duration={2} />
+                </Otherwise>
+            </Choose>
         </div>
     )
 }
