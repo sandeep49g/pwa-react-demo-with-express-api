@@ -9,9 +9,9 @@ const propTypes = {
 
 const EmployeeCardTemplate = ({ nodeData }) => {
   return (
-    <div>
-      <div className="position">{nodeData.title}</div>
-      <div className="fullname pt-2">
+    <React.Fragment>
+      <div className="position text-center">{nodeData.title}</div>
+      <div className="fullname pt-2 text-center">
         {/* <div className="row px-0 mx-0">
           <div className="col-sm-3 pl-2 text-left">
             <img src={profileImage} alt={nodeData.name} className="avatar" />
@@ -20,14 +20,14 @@ const EmployeeCardTemplate = ({ nodeData }) => {
             {nodeData.name}
           </div>
         </div> */}
-        <div className="text-center">
-            <img src={profileImage} alt={nodeData.name} className="avatar" />
+        <div>
+            <img src={profileImage} alt={nodeData.name} className="profile-image" />
         </div>
-        <div className="text-center">
+        <div>
             {nodeData.name}
         </div>
       </div>
-    </div>
+    </React.Fragment>
   );
 };
 
