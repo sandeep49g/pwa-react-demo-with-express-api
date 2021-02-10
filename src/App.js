@@ -41,9 +41,9 @@ function App() {
                 </If>
                 <Switch>
                     <Route path="/my-profile" component={MyProfile} ></Route>
-                    <Route path='/my-team/:empId' exact component={EmployeeProfile} />
                     <Route path="/my-team" component={EmployeesList} ></Route>
                     <Route path="/team-structure" component={TeamStructure} ></Route>
+                    <Route path='/emp-profile/:empId' exact component={EmployeeProfile} />
                     <Route path="/" eaxct component={MyProfile} ></Route>
                 </Switch>
             </Router>
