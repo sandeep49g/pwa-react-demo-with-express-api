@@ -7,11 +7,9 @@ import './_team-structure.css';
 export default function TeamStruture()
 {
     const [employeesHierarchy, setEmployeesHierarchy] = useState();
-
     useEffect(() => {
-        let url = "https://sandeep49g-express-api-demo.netlify.app/.netlify/functions/api/employees-hierarchy";
-
-        fetch(url).then((response) => {
+        let restAPIUrl = "https://sandeep49g-express-api-demo.netlify.app/.netlify/functions/api/employees-hierarchy";
+        fetch(restAPIUrl).then((response) => {
             response.json().then((result) => {
                 if (result) {
                     setEmployeesHierarchy(result);

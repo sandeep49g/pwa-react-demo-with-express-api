@@ -1,0 +1,8 @@
+.employees-list a {
+    color: #ccc;
+}
+
+.employees-list a:hover {
+    color: #fff;
+    text-decoration: none;
+}

@@ -6,7 +6,6 @@ const staticAssets = [
   './my-profile',
   './my-team',
   './team-structure',
-  './emp-profile',
   './static/js/main.chunk.js',
   './static/js/0.chunk.js',
   './static/js/bundle.js',

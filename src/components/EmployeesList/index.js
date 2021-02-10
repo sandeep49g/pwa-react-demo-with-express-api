@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from 'react';
+import { Link, useRouteMatch } from 'react-router-dom';
 import { Table } from 'react-bootstrap';
 import Skeleton from 'react-loading-skeleton';
+import './_employee-list.css';
 
 export default function EmployeesList() {
     const [employeesList, setEmployeesList] = useState([]);
+    let { url } = useRouteMatch();
 
     useEffect(() => {
-        let url = "https://sandeep49g-express-api-demo.netlify.app/.netlify/functions/api/employees-list";
-
-        fetch(url).then((response) => {
+        let restAPIUrl = "https://sandeep49g-express-api-demo.netlify.app/.netlify/functions/api/employees";
+        fetch(restAPIUrl).then((response) => {
             response.json().then((result) => {
                 if (result && result.employeesList) {
                     setEmployeesList(result.employeesList);
@@ -36,9 +38,21 @@ export default function EmployeesList() {
                                     {
                                         employeesList.map((userInfo) => (
                                             <tr key={userInfo.id}>
-                                                <td>{userInfo.name}</td>
-                                                <td>{userInfo.designation}</td>
-                                                <td>{userInfo.email}</td>
+                                                <td>
+                                                    <Link to={`${url}/${userInfo.id}`}>
+                                                        {userInfo.name}
+                                                    </Link>
+                                                </td>
+                                                <td>
+                                                    <Link to={`${url}/${userInfo.id}`}>
+                                                        {userInfo.designation}
+                                                    </Link>
+                                                </td>
+                                                <td>
+                                                    <Link to={`${url}/${userInfo.id}`}>
+                                                        {userInfo.email}
+                                                    </Link>
+                                                </td>
                                             </tr>
                                         ))
                                     }
