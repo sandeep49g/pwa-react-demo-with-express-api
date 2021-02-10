@@ -4,12 +4,12 @@ import { Table } from 'react-bootstrap';
 import Skeleton from 'react-loading-skeleton';
 import './_employee-list.css';
 
-export default function EmployeesList() {
+const EmployeesList = () => {
     const [employeesList, setEmployeesList] = useState([]);
     let { url } = useRouteMatch();
 
     useEffect(() => {
-        let restAPIUrl = "https://sandeep49g-express-api-demo.netlify.app/.netlify/functions/api/employees";
+        const restAPIUrl = "https://sandeep49g-express-api-demo.netlify.app/.netlify/functions/api/employees";
         fetch(restAPIUrl).then((response) => {
             response.json().then((result) => {
                 if (result && result.employeesList) {
@@ -17,6 +17,9 @@ export default function EmployeesList() {
                 }
             });
         });
+        return () => {
+            setEmployeesList([]);
+        };
     }, []);
 
     return (
@@ -32,6 +35,7 @@ export default function EmployeesList() {
                                         <th>Name</th>
                                         <th>Designation</th>
                                         <th>Email</th>
+                                        <th>Phone</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -49,9 +53,10 @@ export default function EmployeesList() {
                                                     </Link>
                                                 </td>
                                                 <td>
-                                                    <Link to={`${url}/${userInfo.id}`}>
-                                                        {userInfo.email}
-                                                    </Link>
+                                                    {userInfo.email}
+                                                </td>
+                                                <td>
+                                                    {userInfo.phone}
                                                 </td>
                                             </tr>
                                         ))
@@ -67,4 +72,6 @@ export default function EmployeesList() {
             </div>
         </div> 
     )
-}
+};
+
+export default EmployeesList;

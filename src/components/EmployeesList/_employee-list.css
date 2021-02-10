@@ -1,3 +1,7 @@
+.employees-list td {
+    color: #ccc;
+}
+
 .employees-list a {
     color: #ccc;
     cursor: pointer;

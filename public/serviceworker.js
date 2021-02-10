@@ -19,39 +19,46 @@ const staticAssets = [
   './bootstrap.min.css'
 ];
 
-const self = this;
-
 // Install SW
-self.addEventListener('install', async e => {
+this.addEventListener('install', async () => {
   const cache = await caches.open(cacheName);
   await cache.addAll(staticAssets);
-  return self.skipWaiting();
+  return this.skipWaiting();
 });
 
 // Activate the SW
-self.addEventListener('activate', e => {
-  self.clients.claim();
+this.addEventListener('activate', () => {
+  this.clients.claim();
 });
 
 // Listen for requests
-self.addEventListener('fetch', async e => {
-  const req = e.request;
+this.addEventListener('fetch', async event => {
+  if (!this.navigator.onLine  &&
+    (event.request.url === "http://localhost:3000/images/favicon-196.png")) {
+      event.waitUntil(
+        this.registration.showNotification("Internet", {
+            body: "internet is not working",
+            icon: "./images/logo.png"
+        })
+      );
+  }
+  const req = event.request;
   const url = new URL(req.url);
 
   if (url.origin === location.origin) {
-    e.respondWith(cacheFirst(req));
+    event.respondWith(cacheFirst(req));
   } else {
-    e.respondWith(networkAndCache(req));
+    event.respondWith(networkAndCache(req));
   }
 });
 
-async function cacheFirst(req) {
+const cacheFirst =  async (req) => {
   const cache = await caches.open(cacheName);
   const cached = await cache.match(req);
   return cached || fetch(req);
-}
+};
 
-async function networkAndCache(req) {
+const networkAndCache =  async (req) => {
   const cache = await caches.open(cacheName);
   try {
     const fresh = await fetch(req);
@@ -61,4 +68,4 @@ async function networkAndCache(req) {
     const cached = await cache.match(req);
     return cached;
   }
-}
+};

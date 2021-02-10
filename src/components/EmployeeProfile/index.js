@@ -3,14 +3,14 @@ import React, { useState, useEffect } from "react";
 import { useParams } from 'react-router-dom';
 import Skeleton from 'react-loading-skeleton';
 
-export default function EmployeeProfile(props) {
+const EmployeeProfile = (props) => {
     let { employeeId } = props && props.employeeId ? props : useParams();
     const [employeeInfo, setEmployeeInfo] = useState();
     const profileImage =  `${process.env.PUBLIC_URL}/images/img_avatar.png`;
 
     useEffect(() => {
         if (employeeId) {
-            let restAPIUrl = `https://sandeep49g-express-api-demo.netlify.app/.netlify/functions/api/employees/${employeeId}`;
+            const restAPIUrl = `https://sandeep49g-express-api-demo.netlify.app/.netlify/functions/api/employees/${employeeId}`;
             fetch(restAPIUrl).then((response) => {
                 response.json().then((result) => {
                     if (result) {
@@ -20,6 +20,12 @@ export default function EmployeeProfile(props) {
             });
         }
     }, [employeeId]);
+
+    useEffect(() => {
+        return () => {
+            setEmployeeInfo({});
+        };
+    }, []);
 
     return (
         <div className="pt-2 px-3">
@@ -180,4 +186,6 @@ export default function EmployeeProfile(props) {
             </Choose>
         </div>
     )
-}
+};
+
+export default EmployeeProfile;

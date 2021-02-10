@@ -72,24 +72,48 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 Note: serviceworker :: Core JS Service Worker: Cached with all files : Network API would even work if no internet with old cached data
 
-npm create-react-app .
-npm run eject (For webpack config, own babel & eslint config, then do npm install again)
-npm install --save react-router-dom
-npm install --save bootstrap react-bootstrap
-npm install --save axios
-npm install --save react-loading-skeleton
-npm install --save babel-plugin-jsx-control-statements eslint-plugin-jsx-control-statements jsx-control-statements
+-- npm create-react-app .
+-- npm run eject (For webpack config, own babel & eslint config, then do npm install again)
+-- npm install --save react-router-dom
+-- npm install --save bootstrap react-bootstrap
+-- npm install --save axios
+-- npm install --save react-loading-skeleton
+-- npm install --save babel-plugin-jsx-control-statements eslint-plugin-jsx-control-statements jsx-control-statements
 
-Configure .babelrc & .eslintrc for jsx-control-statements configuration
+-- Configure .babelrc & .eslintrc for jsx-control-statements configuration
 
-git init  (push in git repo)
+-- git init  (push in git repo)
+-- Add .eslintcache in .gitignore file
 
-To resolve Netlify routing issue for service worker:
-Add file in public folder: _redirects & add below content in this file:
-/* /index.html 200
+--To resolve Netlify routing issue for service worker:
+---- Add file in public folder: _redirects & add below content in this file:
+     /* /index.html 200
 
-npm install --save @dabeng/react-orgchart
+-- npm install --save @dabeng/react-orgchart
 
-Issues:
-1. Caching is not working on emp profile page (my-team/2)
-2. Images are not storing in build/static/media folder through webpack after npm run eject
+-- Issues:
+    1. Caching is not working on emp profile page (my-team/2)
+    2. Images are not storing in build/static/media folder through webpack after npm run eject
+    3. Service worker file should be in public folder but registration should be from /src folder
+    4. Emp profile template components
+    5. Navbar Mobile View with hamburger menu
+
+-- Push Notification:
+    1. VAPID (Voluntary Application Server Identification) Public Key
+       (For security: For authorization by front end to identify authorize application server which provides data for push notifications)
+    2. Application Server Key
+       (Its just converted VAPID Key in form of Array/String)
+    3. Push Notification comes through TCP protocol like Chat Application not  through HTTP
+       -- Data come from Server -> Service Worker -> Send notification to web page
+    4. Readymade code available from npm package (web-push)
+    5. Custom Code:
+       -- First do push notification subscription:
+            <!-- return swResponse.pushManager.getSubscription()
+                .then(function(subscription) {
+                    swResponse.pushManager.subscribe({
+                        userVisibleOnly: true,
+                        applicationServerKey: <applicationServerKey>
+                    });        
+                }); -->
+        -- Code for push notifications through Firebase
+        -- Remove duplicate notifications
