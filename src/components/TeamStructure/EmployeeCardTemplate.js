@@ -1,13 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
 import "./employee-card-template.css";
-import profileImage from '../../images/img_avatar.png';
 
 const propTypes = {
   nodeData: PropTypes.object.isRequired
 };
 
 const EmployeeCardTemplate = ({ nodeData }) => {
+  const profileImage =  `${process.env.PUBLIC_URL}/images/img_avatar.png`;
   return (
     <React.Fragment>
       <div className="position text-center">{nodeData.title}</div>
