@@ -20,7 +20,7 @@ function App() {
             <Router>
                 <Navbar bg="dark" variant="dark">
                     <Navbar.Brand as={NavLink} to="/">
-                        Publicis Sapient
+                        PWA Demo
                     </Navbar.Brand>
                     <Nav>
                         <Nav.Link as={NavLink} to="/" exact>
