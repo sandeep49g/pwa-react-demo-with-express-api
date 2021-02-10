@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import "./employee-card-template.css";
-import profileImage from './images/img_avatar.png';
+import profileImage from '../../images/img_avatar.png';
 
 const propTypes = {
   nodeData: PropTypes.object.isRequired

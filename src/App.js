@@ -4,6 +4,7 @@ import { Navbar, Nav } from 'react-bootstrap';
 import MyProfile from './components/MyProfile/index';
 import EmployeesList from './components/EmployeesList/index';
 import TeamStructure from './components/TeamStructure/index';
+import EmployeeProfile from './components/EmployeeProfile/index';
 import './App.css';
 
 function App() {
@@ -40,6 +41,7 @@ function App() {
                 </If>
                 <Switch>
                     <Route path="/my-profile" component={MyProfile} ></Route>
+                    <Route path='/my-team/:empId' exact component={EmployeeProfile} />
                     <Route path="/my-team" component={EmployeesList} ></Route>
                     <Route path="/team-structure" component={TeamStructure} ></Route>
                     <Route path="/" eaxct component={MyProfile} ></Route>
