@@ -11,7 +11,11 @@ const staticAssets = [
   './static/js/bundle.js',
   './static/css/main.chunk.css',
   './images/manifest-icon-192.png',
+  './images/manifest-icon-512.png',
   './images/favicon-196.png',
+  './images/img_avatar.png',
+  './images/img_avatar2.png',
+  './images/img_avatar3.png',
   './bootstrap.min.css'
 ];
 
