@@ -23,7 +23,7 @@ function App() {
                         Publicis Sapient
                     </Navbar.Brand>
                     <Nav>
-                        <Nav.Link as={NavLink} to="/my-profile" exact>
+                        <Nav.Link as={NavLink} to="/" exact>
                             My Profile
                         </Nav.Link>
                         <Nav.Link as={NavLink} to="/my-team">

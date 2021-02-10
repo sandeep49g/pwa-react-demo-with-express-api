@@ -1,5 +1,6 @@
 .employees-list a {
     color: #ccc;
+    cursor: pointer;
 }
 
 .employees-list a:hover {

@@ -76,7 +76,7 @@ npm create-react-app .
 npm run eject (For webpack config, own babel & eslint config, then do npm install again)
 npm install --save react-router-dom
 npm install --save bootstrap react-bootstrap
-npm install --save  axios
+npm install --save axios
 npm install --save react-loading-skeleton
 npm install --save babel-plugin-jsx-control-statements eslint-plugin-jsx-control-statements jsx-control-statements
 
@@ -87,3 +87,9 @@ git init  (push in git repo)
 To resolve Netlify routing issue for service worker:
 Add file in public folder: _redirects & add below content in this file:
 /* /index.html 200
+
+npm install --save @dabeng/react-orgchart
+
+Issues:
+1. Caching is not working on emp profile page (my-team/2)
+2. Images are not storing in build/static/media folder through webpack after npm run eject
