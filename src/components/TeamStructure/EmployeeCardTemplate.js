@@ -1,13 +1,16 @@
+/* eslint-disable react/prop-types */
 import React from "react";
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
+import { Link } from 'react-router-dom';
 import "./employee-card-template.css";
 
-const propTypes = {
-  nodeData: PropTypes.object.isRequired
-};
+// const propTypes = {
+//   nodeData: PropTypes.object.isRequired
+// };
 
 const EmployeeCardTemplate = ({ nodeData }) => {
   const profileImage =  `${process.env.PUBLIC_URL}/images/img_avatar.png`;
+
   return (
     <React.Fragment>
       <div className="position text-center">{nodeData.title}</div>
@@ -21,16 +24,19 @@ const EmployeeCardTemplate = ({ nodeData }) => {
           </div>
         </div> */}
         <div>
-            <img src={profileImage} alt={nodeData.name} className="profile-image" />
+          <Link to={`my-team/${nodeData.id}`}>
+              <img src={profileImage} alt={nodeData.name} className="profile-image" />
+          </Link>
         </div>
         <div>
-            {nodeData.name}
+          <Link to={`my-team/${nodeData.id}`}>
+              {nodeData.name}
+          </Link>
         </div>
       </div>
     </React.Fragment>
   );
 };
 
-EmployeeCardTemplate.propTypes = propTypes;
-
+// EmployeeCardTemplate.propTypes = propTypes;
 export default EmployeeCardTemplate;

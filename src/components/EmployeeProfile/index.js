@@ -1,8 +1,8 @@
+/* eslint-disable react/prop-types */
 import React, { useState, useEffect } from "react";
 import { useParams } from 'react-router-dom';
 import Skeleton from 'react-loading-skeleton';
 
-/* eslint-disable react/prop-types */
 export default function EmployeeProfile(props) {
     let { employeeId } = props && props.employeeId ? props : useParams();
     const [employeeInfo, setEmployeeInfo] = useState();
