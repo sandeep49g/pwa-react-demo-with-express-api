@@ -108,12 +108,13 @@ Note: serviceworker :: Core JS Service Worker: Cached with all files : Network A
     4. Readymade code available from npm package (web-push)
     5. Custom Code:
        -- First do push notification subscription:
-            <!-- return swResponse.pushManager.getSubscription()
-                .then(function(subscription) {
-                    swResponse.pushManager.subscribe({
-                        userVisibleOnly: true,
-                        applicationServerKey: <applicationServerKey>
-                    });        
-                }); -->
-        -- Code for push notifications through Firebase
-        -- Remove duplicate notifications
+        -- Code to send local push notifications
+        -- Remove duplicate notifications (Just give some condition)
+        -- Code to send push notifications through Firebase
+           -- Install Firsebase (npm install --save firebase)
+           -- Make firebase file (firebase.js)
+           -- Setup account with firebase
+              -- (https://firebase.google.com -> Go to console -> Provide Project ID -> Uncheck google analytics -> Provide app name to register [ Should be same app name as your project ] )
+              -- copy this config in firebase.js
+           -- Register firebase with service worker
+              -- Import firebase.js in App.js

@@ -39,10 +39,10 @@ this.addEventListener('fetch', async event => {
         // Check if user is Online or Offline
         if (event.request.url === `${hostUrl}/images/favicon-196.png`) {
             event.waitUntil(
-                this.registration.showNotification("Internet", {
-                    body: (this.navigator.onLine) ? "Internet is working properly" :
-                        "Internet is not working",
-                    icon: "./images/favicon-196.png"
+                this.registration.showNotification('Internet', {
+                    body: (this.navigator.onLine) ? 'Internet is working properly' :
+                        'Internet is not working',
+                    icon: './images/favicon-196.png'
                 })
             );
         }

@@ -5,6 +5,7 @@ import MyProfile from './components/MyProfile/index';
 import EmployeesList from './components/EmployeesList/index';
 import TeamStructure from './components/TeamStructure/index';
 import EmployeeProfile from './components/EmployeeProfile/index';
+import firebase from './firebase';
 import './App.css';
 
 function App() {
@@ -13,6 +14,19 @@ function App() {
     useEffect(() => {
         window.addEventListener('online', () => setMode('online'));
         window.addEventListener('offline', () => setMode('offline'));
+
+        if (window.Notification.permission === 'granted') {
+            const firebaseMsg = firebase.messaging();
+            window.Notification.requestPermission().then(() => {
+                return firebaseMsg.getToken();
+            })
+            .then(token => {
+                console.log("Firebase Token: ", token);
+            })
+            .catch(err => {
+                console.log(err);
+            });
+        }        
     }, []);
 
     return (
