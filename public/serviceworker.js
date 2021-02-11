@@ -36,11 +36,12 @@ this.addEventListener('fetch', async event => {
     // Start :: Logic to send push notifications after successful subscription
     if (this.Notification.permission === 'granted') {
         const hostUrl = `${this.location.protocol}//${this.location.host}`;
-        if (!this.navigator.onLine &&
-            (event.request.url === `${hostUrl}/images/favicon-196.png`)) {
+        // Check if user is Online or Offline
+        if (event.request.url === `${hostUrl}/images/favicon-196.png`) {
             event.waitUntil(
                 this.registration.showNotification("Internet", {
-                    body: "internet is not working",
+                    body: (this.navigator.onLine) ? "Internet is working properly" :
+                        "Internet is not working",
                     icon: "./images/favicon-196.png"
                 })
             );
