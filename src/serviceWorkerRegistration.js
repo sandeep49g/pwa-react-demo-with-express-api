@@ -42,7 +42,7 @@ const determineAppServerKey = () => {
 
 const registerServiceWorker = () => {
     if ('serviceWorker' in window.navigator) {
-        let serviceWorkerUrl =  `${process.env.PUBLIC_URL}/serviceworker.js`;
+        let serviceWorkerUrl =  `${process.env.PUBLIC_URL}/service-worker.js`;
         window.navigator.serviceWorker.register(serviceWorkerUrl, { scope: '/' })
             .then((swResponse) => {
                 console.log('Service worker registration succeeded :: ', swResponse.scope);

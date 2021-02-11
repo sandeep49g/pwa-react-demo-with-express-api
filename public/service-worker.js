@@ -50,12 +50,14 @@ this.addEventListener('fetch', async event => {
     // End :: Logic to send push notifications after successful subscription
 
     const req = event.request;
-    const url = new URL(req.url);
-
-    if (url.origin === location.origin) {
-        event.respondWith(cacheFirst(req));
-    } else {
-        event.respondWith(networkAndCache(req));
+    if (req.url !== 'https://firebaseinstallations.googleapis.com/v1/projects/pwa-react-demo-express-api/installations' &&
+        req.url !== 'https://fcmregistrations.googleapis.com/v1/projects/pwa-react-demo-express-api/registrations') {
+        const url = new URL(req.url);
+        if (url.origin === location.origin) {
+            event.respondWith(cacheFirst(req));
+        } else {
+            event.respondWith(networkAndCache(req));
+        }
     }
 });
 
