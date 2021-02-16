@@ -25,9 +25,27 @@
 
 .mobile-navbar a {
     display: block;
-    color: #ccc;
     padding: .5rem 1rem;
     text-decoration: none;
+    color:rgba(255,255,255,.5);
+}
+
+.mobile-navbar a:hover:not(.active, .icon, .navbar-brand-title) {
+    text-decoration: none;
+    background-color: rgba(255,255,255,.075);
+    color: rgba(255,255,255,.75);
+}
+
+.mobile-navbar a:active:not(.icon, .navbar-brand-title) {
+    text-decoration: none;
+    background-color: rgba(255,255,255,.075);
+    color: #fff;
+}
+
+.mobile-navbar a.active {
+    text-decoration: none;
+    background-color: rgba(255,255,255,.075);
+    color: #fff;
 }
 
 .mobile-navbar a.navbar-brand-title {
@@ -46,23 +64,5 @@
 }
 
 .mobile-navbar a.icon:hover {
-    color: #fff;
-}
-
-.mobile-navbar a:hover:not(.icon, .navbar-brand-title) {
-    text-decoration: none;
-    background-color: rgba(255,255,255,.075);
-    color: #fff;
-}
-
-.mobile-navbar a:active:not(.icon, .navbar-brand-title) {
-    text-decoration: none;
-    background-color: rgba(255,255,255,.075);
-    color: #fff;
-}
-
-.mobile-navbar a.active {
-    text-decoration: none;
-    background-color: rgba(255,255,255,.075);
     color: #fff;
 }
