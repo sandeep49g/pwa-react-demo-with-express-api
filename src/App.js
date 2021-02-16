@@ -18,8 +18,6 @@ function App() {
         '/team-structure': 'teamStructureLink',
     };
 
-    const currentRoutePath = window.location.pathname;
-
     const toggleMobileNavLinks = () => {
         const mobileNavLinks = document.getElementById("mobileNavLinks");
         mobileNavLinks.style.display =
@@ -36,21 +34,26 @@ function App() {
         const activeElement = document.getElementById(elementId);
         activeElement.classList.add('active');
     }
-    
-    useEffect(() => {
+
+    const activateRouteLink = () => {
+        const currentRoutePath = window.location.pathname;
         Object.entries(routeActiveLinkMap).forEach(([routePath, activeLinkElement]) => {
             if (currentRoutePath.includes(routePath)) {
                 activateLink(activeLinkElement);
                 return false;
             }
         });
-
+    }
+    
+    useEffect(() => {
+        activateRouteLink();
         const navbarContainerElement = document.getElementById('navbarContainer');
         window.addEventListener('mouseover', function(event) {
             const isClickInsidenavbarContainerElement = navbarContainerElement.contains(event.target);
             if (!isClickInsidenavbarContainerElement) {
                 const mobileNavLinks = document.getElementById("mobileNavLinks");
                 mobileNavLinks.style.display = 'none';
+                activateRouteLink();
             }
         });
 
