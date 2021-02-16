@@ -18,11 +18,7 @@
     overflow: hidden;
     position: relative;
 }
-  
-.mobile-navbar .navbar-brand {
-    padding: 0.8rem 1rem;
-    color: #fff;
-}
+
 .mobile-navbar #mobileNavLinks {
     display: none;
 }
@@ -34,20 +30,26 @@
     text-decoration: none;
 }
 
+.mobile-navbar a.navbar-brand-title {
+    text-decoration: none;
+    color: #fff;
+}
+
 .mobile-navbar a.icon {
     display: block;
     cursor: pointer;
     position: absolute;
     right: 0;
     top: 0;
-    padding-top: 1rem;
+    padding-top: 1rem;    
+    text-decoration: none;
 }
 
 .mobile-navbar a.icon:hover {
     color: #fff;
 }
 
-.mobile-navbar a:hover:not(.icon) {
+.mobile-navbar a:hover:not(.icon, .navbar-brand-title) {
     text-decoration: none;
     background-color: rgba(255,255,255,.075);
     color: #fff;

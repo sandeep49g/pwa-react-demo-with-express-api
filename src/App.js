@@ -17,7 +17,7 @@ function App() {
         '/my-team': 'myTeamLink',
         '/team-structure': 'teamStructureLink',
     };
-    
+
     const currentRoutePath = window.location.pathname;
 
     const toggleMobileNavLinks = () => {
@@ -98,10 +98,12 @@ function App() {
                     </Navbar>
                 </div>
                     <div className="mobile-navbar bg-dark" id="mobileNavbar">
-                        <Link to="/" className="navbar-brand"
+                        <div className="navbar-brand"
                             onClick={() => activateLink('myProfileLink')}>
-                            PWA Demo
-                        </Link>
+                            <Link to="/" className="navbar-brand-title">
+                                PWA Demo
+                            </Link>
+                        </div>
                         <div id="mobileNavLinks">
                             <Link to="/" id="myProfileLink"
                                 onClick={() => activateLink('myProfileLink')}>
