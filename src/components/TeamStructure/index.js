@@ -4,7 +4,7 @@ import OrganizationChart from "@dabeng/react-orgchart";
 import EmployeeCardTemplate from './EmployeeCardTemplate.js';
 import './_team-structure.css';
 
-const TeamStruture = () => {
+const TeamStructure = () => {
     const [employeesHierarchy, setEmployeesHierarchy] = useState();
     useEffect(() => {
         const restAPIUrl = "https://sandeep49g-express-api-demo.netlify.app/.netlify/functions/api/employees-hierarchy";
@@ -39,4 +39,4 @@ const TeamStruture = () => {
     )
 };
 
-export default TeamStruture;
+export default TeamStructure;
