@@ -118,3 +118,4 @@ Note: serviceworker :: Core JS Service Worker: Cached with all files : Network A
               -- copy this config in firebase.js
            -- Register firebase with service worker
               -- Import firebase.js in App.js
+    6. Mobile Navbar (Hamburger icon through CDN font awesome)
