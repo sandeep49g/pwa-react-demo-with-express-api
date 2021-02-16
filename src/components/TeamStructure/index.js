@@ -22,7 +22,7 @@ const TeamStruture = () => {
 
     return (
         <div className="pt-2 px-3">
-            <h3>Team Struture</h3>
+            <h3>Team Structure</h3>
             <Choose>
                 <When condition={employeesHierarchy}>
                     <OrganizationChart
