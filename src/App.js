@@ -44,18 +44,24 @@ function App() {
             }
         });
     }
+
+    const addEventListeners = (eventNames) => {
+        const navbarContainerElement = document.getElementById('navbarContainer');
+        eventNames.forEach(eventName => {
+            window.addEventListener(eventName, (event) => {
+                const isClickInsidenavbarContainerElement = navbarContainerElement.contains(event.target);
+                if (!isClickInsidenavbarContainerElement) {
+                    const mobileNavLinks = document.getElementById("mobileNavLinks");
+                    mobileNavLinks.style.display = 'none';
+                    activateRouteLink();
+                }
+            });
+        });
+    };
     
     useEffect(() => {
         activateRouteLink();
-        const navbarContainerElement = document.getElementById('navbarContainer');
-        window.addEventListener('mouseover', function(event) {
-            const isClickInsidenavbarContainerElement = navbarContainerElement.contains(event.target);
-            if (!isClickInsidenavbarContainerElement) {
-                const mobileNavLinks = document.getElementById("mobileNavLinks");
-                mobileNavLinks.style.display = 'none';
-                activateRouteLink();
-            }
-        });
+        addEventListeners(['mousemove', 'touchmove']);
 
         window.addEventListener('online', () => setMode('online'));
         window.addEventListener('offline', () => setMode('offline'));

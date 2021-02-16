@@ -55,6 +55,12 @@
     color: #fff;
 }
 
+.mobile-navbar a:active:not(.icon, .navbar-brand-title) {
+    text-decoration: none;
+    background-color: rgba(255,255,255,.075);
+    color: #fff;
+}
+
 .mobile-navbar a.active {
     text-decoration: none;
     background-color: rgba(255,255,255,.075);
