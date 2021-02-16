@@ -61,7 +61,9 @@ function App() {
     
     useEffect(() => {
         activateRouteLink();
-        addEventListeners(['mousemove', 'touchmove']);
+
+        // addEventListeners(['mousemove', 'touchmove']);
+        addEventListeners(['click']);
 
         window.addEventListener('online', () => setMode('online'));
         window.addEventListener('offline', () => setMode('offline'));

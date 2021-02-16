@@ -25,7 +25,7 @@
 
 .mobile-navbar a {
     display: block;
-    padding: .5rem 1rem;
+    padding: .7rem 1rem;
     text-decoration: none;
     color:rgba(255,255,255,.5);
 }
@@ -51,6 +51,7 @@
 .mobile-navbar a.navbar-brand-title {
     text-decoration: none;
     color: #fff;
+    padding: .5rem 1rem;
 }
 
 .mobile-navbar a.icon {
