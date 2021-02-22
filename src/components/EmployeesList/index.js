@@ -7,16 +7,19 @@ import './_employee-list.css';
 const EmployeesList = () => {
     const [employeesList, setEmployeesList] = useState([]);
     let { url } = useRouteMatch();
-
-    useEffect(() => {
+    
+    const getEmployeesList = async () => {
         const restAPIUrl = "https://sandeep49g-express-api-demo.netlify.app/.netlify/functions/api/employees";
-        fetch(restAPIUrl).then((response) => {
-            response.json().then((result) => {
-                if (result && result.employeesList) {
-                    setEmployeesList(result.employeesList);
-                }
-            });
-        });
+        // const restAPIUrl = "http://localhost:9000/.netlify/functions/api/employees";
+        const response = await fetch(restAPIUrl);
+        const result = await response.json();
+        if (result && result.employeesList) {
+            setEmployeesList(result.employeesList);
+        }
+    };
+    
+    useEffect(() => {
+        getEmployeesList();
         return () => {
             setEmployeesList([]);
         };
@@ -40,15 +43,16 @@ const EmployeesList = () => {
                                 </thead>
                                 <tbody>
                                     {
-                                        employeesList.map((userInfo) => (
-                                            <tr key={userInfo.id}>
+                                        // employeesList.map((userInfo) => (
+                                        <For each="userInfo" of={employeesList}>
+                                            <tr key={userInfo.employeeId}>
                                                 <td>
-                                                    <Link to={`${url}/${userInfo.id}`}>
+                                                    <Link to={`${url}/${userInfo.employeeId}`}>
                                                         {userInfo.name}
                                                     </Link>
                                                 </td>
                                                 <td>
-                                                    <Link to={`${url}/${userInfo.id}`}>
+                                                    <Link to={`${url}/${userInfo.employeeId}`}>
                                                         {userInfo.designation}
                                                     </Link>
                                                 </td>
@@ -59,7 +63,8 @@ const EmployeesList = () => {
                                                     {userInfo.phone}
                                                 </td>
                                             </tr>
-                                        ))
+                                        </For>
+                                        // ))
                                     }
                                 </tbody>
                             </Table>

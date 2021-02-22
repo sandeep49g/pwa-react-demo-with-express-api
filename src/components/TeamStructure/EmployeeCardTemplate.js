@@ -24,12 +24,12 @@ const EmployeeCardTemplate = ({ nodeData }) => {
           </div>
         </div> */}
         <div>
-          <Link to={`my-team/${nodeData.id}`}>
+          <Link to={`my-team/${nodeData.employeeId}`}>
               <img src={profileImage} alt={nodeData.name} className="profile-image" />
           </Link>
         </div>
         <div>
-          <Link to={`my-team/${nodeData.id}`}>
+          <Link to={`my-team/${nodeData.employeeId}`}>
               {nodeData.name}
           </Link>
         </div>

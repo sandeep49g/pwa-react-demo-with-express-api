@@ -8,16 +8,19 @@ const EmployeeProfile = (props) => {
     const [employeeInfo, setEmployeeInfo] = useState();
     const profileImage =  `${process.env.PUBLIC_URL}/images/img_avatar.png`;
 
+    const getEmployeeInfo = async (employeeId) => {
+        const restAPIUrl = `https://sandeep49g-express-api-demo.netlify.app/.netlify/functions/api/employees/${employeeId}`;
+        // const restAPIUrl = `http://localhost:9000/.netlify/functions/api/employees/${employeeId}`;
+        const response = await fetch(restAPIUrl);
+        const result = await response.json();
+        if (result) {
+            setEmployeeInfo(result);
+        }
+    };
+    
     useEffect(() => {
         if (employeeId) {
-            const restAPIUrl = `https://sandeep49g-express-api-demo.netlify.app/.netlify/functions/api/employees/${employeeId}`;
-            fetch(restAPIUrl).then((response) => {
-                response.json().then((result) => {
-                    if (result) {
-                        setEmployeeInfo(result);
-                    }
-                });
-            });
+            getEmployeeInfo(employeeId);
         }
     }, [employeeId]);
 
@@ -116,7 +119,7 @@ const EmployeeProfile = (props) => {
                                             <h6 className="mb-0">Address</h6>
                                         </div>
                                         <div className="col-sm-9 text-secondary">
-                                            {employeeInfo.address.street}
+                                            {employeeInfo?.address?.street}
                                         </div>
                                     </div>
                                 </div>

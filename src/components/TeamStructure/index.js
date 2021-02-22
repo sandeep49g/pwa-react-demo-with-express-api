@@ -6,15 +6,19 @@ import './_team-structure.css';
 
 const TeamStructure = () => {
     const [employeesHierarchy, setEmployeesHierarchy] = useState();
-    useEffect(() => {
+
+    const getEmployeesHierarchy = async () => {
         const restAPIUrl = "https://sandeep49g-express-api-demo.netlify.app/.netlify/functions/api/employees-hierarchy";
-        fetch(restAPIUrl).then((response) => {
-            response.json().then((result) => {
-                if (result) {
-                    setEmployeesHierarchy(result);
-                }
-            });
-        });
+        // const restAPIUrl = "http://localhost:9000/.netlify/functions/api/employees-hierarchy";
+        const response = await fetch(restAPIUrl);
+        const result = await response.json();
+        if (result) {
+            setEmployeesHierarchy(result);
+        }
+    };
+
+    useEffect(() => {
+        getEmployeesHierarchy();
         return () => {
             setEmployeesHierarchy({});
         };

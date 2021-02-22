@@ -119,3 +119,4 @@ Note: serviceworker :: Core JS Service Worker: Cached with all files : Network A
            -- Register firebase with service worker
               -- Import firebase.js in App.js
     6. Mobile Navbar (Hamburger icon through CDN font awesome)
+    7. Connect with Mongo DB
